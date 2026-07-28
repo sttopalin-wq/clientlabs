@@ -240,6 +240,27 @@ svg.in .dt{opacity:1}
 .tcard:hover .btn:hover{color:var(--paper)}
 @media(max-width:860px){.tgrid{grid-template-columns:1fr}.tcard{min-height:auto}}
 
+/* FAQ */
+.faq{padding:120px 0;border-bottom:1px solid var(--line)}
+.guarantees{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:64px}
+.guarantees .g{background:var(--paper);padding:30px 26px;display:flex;flex-direction:column;gap:12px;transition:background .3s}
+.guarantees .g:hover{background:var(--paper-2)}
+.guarantees .g .gi{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)}
+.guarantees .g b{font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.guarantees .g p{font-size:13.5px;color:#555;font-weight:500}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:24px;padding:30px 0;font-family:inherit;color:var(--ink);transition:padding .4s var(--ease)}
+.faq-item:hover .faq-q{padding-left:14px}
+.faq-q .qn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);flex:0 0 auto;width:44px}
+.faq-q .qt{font-size:clamp(19px,2.6vw,27px);font-weight:700;letter-spacing:-.02em;flex:1}
+.faq-q .qp{font-size:28px;font-weight:200;transition:transform .4s var(--ease);flex:0 0 auto}
+.faq-item.open .faq-q .qp{transform:rotate(45deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.faq-a p{padding:0 0 30px 68px;max-width:760px;font-size:16px;color:#333;font-weight:500;line-height:1.6}
+@media(max-width:860px){.guarantees{grid-template-columns:1fr 1fr}.faq-q .qn{display:none}.faq-a p{padding-left:0}}
+@media(max-width:480px){.guarantees{grid-template-columns:1fr}}
+
 /* REVIEWS */
 .reviews{padding:120px 0;border-bottom:1px solid var(--line)}
 .rev-wrap{display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--line)}
@@ -413,6 +434,7 @@ footer{padding:74px 0 40px;overflow:hidden}
       <a href="#services" class="lnk" data-sec="services">Услуги</a>
       <a href="#work" class="lnk" data-sec="work">Работы</a>
       <a href="#tariffs" class="lnk" data-sec="tariffs">Тарифы</a>
+      <a href="#faq" class="lnk" data-sec="faq">Вопросы</a>
       <a href="#reviews" class="lnk" data-sec="reviews">Отзывы</a>
       <a href="#lead" class="lnk" data-sec="lead" style="font-weight:800">Контакт →</a>
       <button class="burger" onclick="document.getElementById('mm').classList.add('open')">☰</button>
@@ -560,10 +582,31 @@ footer{padding:74px 0 40px;overflow:hidden}
   </div>
 </section>
 
+<!-- FAQ + ГАРАНТИИ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-top rv"><div class="idx mono">(07)</div><div><h2>Вопросы и гарантии.</h2><p class="lead">Отвечаем на то, что чаще всего спрашивают перед стартом. Без звонка и воды.</p></div></div>
+    <div class="guarantees rv">
+      <div class="g"><div class="gi">01</div><b>Бесплатный разбор</b><p>Считаем экономику и прогноз по заявкам до оплаты — вы видите смысл ещё до старта.</p></div>
+      <div class="g"><div class="gi">02</div><b>Работаем по договору</b><p>Официальный договор и закрывающие документы. Прозрачно с первого дня.</p></div>
+      <div class="g"><div class="gi">03</div><b>Отчёты каждую неделю</b><p>Понятные отчёты по деньгам и заявкам. Вы всегда знаете, куда идёт бюджет.</p></div>
+      <div class="g"><div class="gi">04</div><b>Без штрафов за выход</b><p>Не устроил результат — расстаёмся спокойно, без скрытых условий и удержаний.</p></div>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(01)</span><span class="qt">Сколько стоит работа с вами?</span><span class="qp">+</span></button><div class="faq-a"><p>Стоимость зависит от ниши, региона и целей — поэтому считаем индивидуально после короткого разговора. Работаем от [ВПИШИТЕ МИН. БЮДЖЕТ, напр. 30 000 ₽/мес] за ведение. На бесплатном разборе называем конкретную цифру под ваш проект.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(02)</span><span class="qt">Когда будут первые результаты?</span><span class="qp">+</span></button><div class="faq-a"><p>Первые заявки обычно приходят уже на 1–2 неделе после запуска. Первый месяц — это тесты и накопление данных, дальше идёт рост и снижение цены заявки. Стабильный результат — со 2–3 месяца.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(03)</span><span class="qt">А если реклама не сработает?</span><span class="qp">+</span></button><div class="faq-a"><p>Мы считаем экономику ещё до старта, поэтому не берёмся за проекты, где реклама заведомо не окупится. Если что-то идёт не так — оперативно меняем связки. Работаем без штрафов за выход: не подошли — расстаёмся спокойно.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(04)</span><span class="qt">Какой нужен рекламный бюджет?</span><span class="qp">+</span></button><div class="faq-a"><p>Зависит от ниши и региона. На старте обычно достаточно [ВПИШИТЕ, напр. 40 000–60 000 ₽/мес] рекламного бюджета, чтобы собрать данные и выйти на стабильный поток заявок. Точную сумму назовём на разборе.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(05)</span><span class="qt">Вы работаете с моей нишей?</span><span class="qp">+</span></button><div class="faq-a"><p>Работаем с большинством ниш в товарке и услугах — от стоматологий и онлайн-школ до ремонта и B2B. Если ваша ниша нам не подходит, честно скажем об этом на разборе и не будем тратить ваше время.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(06)</span><span class="qt">Что вы даёте, чего нет у других?</span><span class="qp">+</span></button><div class="faq-a"><p>Полный цикл в одних руках: таргет, контекст и сайт, который продаёт. Сквозная аналитика до продажи, а не до клика. И отчёты в деньгах, а не в «показах» — вы видите реальную окупаемость.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="wrap">
-    <div class="sec-top rv"><div class="idx mono">(07)</div><div><h2>Отзывы.</h2><p class="lead">Работали с нами? Оставьте отзыв — он появится в списке сразу.</p></div></div>
+    <div class="sec-top rv"><div class="idx mono">(08)</div><div><h2>Отзывы.</h2><p class="lead">Работали с нами? Оставьте отзыв — он появится в списке сразу.</p></div></div>
     <div class="rev-wrap rv">
       <div class="rev-list" id="reviewsList"></div>
       <div class="rev-form">
@@ -573,6 +616,7 @@ footer{padding:74px 0 40px;overflow:hidden}
         <div class="fld"><label>Оценка</label><div class="star-pick" id="starPick"><span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span></div></div>
         <div class="fld"><label>Отзыв</label><textarea id="rvText" rows="4" placeholder="Что понравилось и какого результата достигли..."></textarea></div>
         <button class="btn" onclick="submitReview()"><span>Опубликовать →</span></button>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-2);margin-top:12px">Публикуя отзыв, вы соглашаетесь с <a href="privacy.html" style="color:var(--accent);text-decoration:underline">политикой обработки данных</a>.</p>
       </div>
     </div>
   </div>
@@ -581,7 +625,7 @@ footer{padding:74px 0 40px;overflow:hidden}
 <!-- LEAD -->
 <section class="lead" id="lead">
   <div class="wrap">
-    <div class="kicker rv"><span>(08) — Свяжитесь с нами</span><span>hello@clientlabs.ru</span></div>
+    <div class="kicker rv"><span>(09) — Свяжитесь с нами</span><span>hello@clientlabs.ru</span></div>
     <h2><span class="mask rv in"><span>Начнём?</span></span></h2>
     <div class="lead-cols">
       <div class="lead-left rv">
@@ -596,7 +640,7 @@ footer{padding:74px 0 40px;overflow:hidden}
         <div class="fld"><label>Телефон или мессенджер</label><input id="ldPhone" required placeholder="+7 ___ ___ __ __"></div>
         <div class="fld"><label>Что вас интересует?</label><select id="ldService"><option>Таргетированная реклама</option><option>Контекстная реклама</option><option>Сайт под ключ</option><option>Комплекс под ключ</option><option>Нужна консультация</option></select></div>
         <button class="btn" type="submit"><span>Получить бесплатный разбор →</span></button>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);margin-top:12px">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);margin-top:12px">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:var(--accent);text-decoration:underline">политикой обработки данных</a>.</p>
       </form>
     </div>
   </div>
@@ -612,13 +656,13 @@ footer{padding:74px 0 40px;overflow:hidden}
       <div class="foot-col"><h5>Компания</h5><a href="#work">Результаты</a><a href="#reviews">Отзывы</a><a href="#tariffs">Тарифы</a></div>
       <div class="foot-col"><h5>Контакт</h5><a href="https://t.me/clientlabs" target="_blank">Telegram</a><a href="#" data-max target="_blank">МАКС</a><a href="mailto:hello@clientlabs.ru">hello@clientlabs.ru</a></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 CLIENTLABS®</span><span>Сделано, чтобы приносить вам клиентов</span></div>
+    <div class="foot-bottom"><span>© 2026 CLIENTLABS®</span><span><a href="privacy.html">Политика обработки данных</a></span><span>Сделано, чтобы приносить вам клиентов</span></div>
   </div>
 </footer>
 
 <div class="mm" id="mm">
   <button class="x" onclick="this.parentElement.classList.remove('open')">✕</button>
-  <a href="#services" onclick="closeMM()">Услуги</a><a href="#work" onclick="closeMM()">Работы</a><a href="#tariffs" onclick="closeMM()">Тарифы</a><a href="#reviews" onclick="closeMM()">Отзывы</a><a href="#lead" onclick="closeMM()">Контакт</a>
+  <a href="#services" onclick="closeMM()">Услуги</a><a href="#work" onclick="closeMM()">Работы</a><a href="#tariffs" onclick="closeMM()">Тарифы</a><a href="#faq" onclick="closeMM()">Вопросы</a><a href="#reviews" onclick="closeMM()">Отзывы</a><a href="#lead" onclick="closeMM()">Контакт</a>
 </div>
 
 <div class="fmsg"><a href="https://t.me/clientlabs" target="_blank">TG</a><a href="#" data-max target="_blank">МАКС</a></div>
@@ -654,7 +698,13 @@ const CONFIG = {
 
   // === ИЛИ автодоставка на e-mail (альтернатива Telegram-боту) =============
   // Бесплатный ключ за минуту на web3forms.com (введите свою почту → ключ в письме).
-  web3formsKey: ''
+  web3formsKey: '',
+
+  // === ЯНДЕКС.МЕТРИКА (аналитика) ==========================================
+  // 1) Создайте счётчик на metrika.yandex.ru (2 минуты).
+  // 2) Скопируйте номер счётчика (только цифры) и вставьте сюда.
+  // Пусто = аналитика выключена. Цели 'lead' и 'review' срабатывают сами.
+  metrikaId: ''
 };
 
 /* Применяем контакты ко всем ссылкам на странице */
@@ -669,6 +719,18 @@ function initContacts(){
   document.querySelectorAll('.lead .kicker span, .foot-bottom span').forEach(s=>{if(s.textContent.includes('@'))s.textContent=CONFIG.email;});
 }
 initContacts();
+
+/* ЯНДЕКС.МЕТРИКА — грузится только если задан CONFIG.metrikaId */
+(function(){
+  if(!CONFIG.metrikaId)return;
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();for(var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r)return;}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+  ym(CONFIG.metrikaId,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+})();
+/* Отправка цели в Метрику (безопасно, если счётчик выключен) */
+function metrikaGoal(name){try{if(CONFIG.metrikaId&&window.ym)ym(CONFIG.metrikaId,'reachGoal',name);}catch(e){}}
 
 /* PRELOADER */
 (function(){
@@ -728,7 +790,17 @@ document.querySelectorAll('#lc1,#lc2,#bc1,#bc2').forEach(el=>chObs.observe(el));
 
 /* ACTIVE NAV */
 const secObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;document.querySelectorAll('.lnk').forEach(l=>l.classList.toggle('active',l.dataset.sec===id))}}),{rootMargin:'-45% 0px -50% 0px'});
-['services','work','tariffs','reviews','lead'].forEach(id=>{const s=document.getElementById(id);if(s)secObs.observe(s)});
+['services','work','tariffs','faq','reviews','lead'].forEach(id=>{const s=document.getElementById(id);if(s)secObs.observe(s)});
+
+/* FAQ аккордеон */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+    if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
 
 /* REVIEWS */
 const seed=[
@@ -753,7 +825,7 @@ async function submitReview(){
   s.unshift({name,company,stars:picked,text});
   localStorage.setItem('cl_reviews',JSON.stringify(s));
   rvName.value='';rvCompany.value='';rvText.value='';const wasStars=picked;picked=5;paint(5);renderR();
-  toast('Спасибо за отзыв');
+  toast('Спасибо за отзыв');metrikaGoal('review');
   // уведомляем владельца в Telegram, чтобы отзыв не потерялся
   if(CONFIG.tgBotToken && CONFIG.tgChatId){
     const msg=`⭐ Новый отзыв — CLIENTLABS\n\n👤 ${name}${company?' · '+company:''}\n${'★'.repeat(wasStars)}${'☆'.repeat(5-wasStars)}\n\n${text}`;
@@ -782,7 +854,7 @@ async function submitLead(e){
 
   const text=`🔔 Новая заявка — CLIENTLABS\n\n👤 Имя: ${name}\n📞 Контакт: ${phone}\n🎯 Услуга: ${svc}`;
   const setBusy=v=>{if(btn)btn.disabled=v; if(label&&v)label.textContent='Отправляем…';};
-  const done=ok=>{if(label)label.textContent='Получить бесплатный разбор →'; if(btn)btn.disabled=false; if(ok){toast('Заявка отправлена — скоро свяжемся');e.target.reset();}};
+  const done=ok=>{if(label)label.textContent='Получить бесплатный разбор →'; if(btn)btn.disabled=false; if(ok){toast('Заявка отправлена — скоро свяжемся');e.target.reset();metrikaGoal('lead');}};
 
   // Режим 1 — автодоставка в Telegram через бота
   if(CONFIG.tgBotToken && CONFIG.tgChatId){
@@ -821,6 +893,7 @@ function leadFallback(name,phone,svc){
     ? 'https://t.me/'+CONFIG.telegram
     : 'https://wa.me/'+CONFIG.phone+'?text='+encodeURIComponent(text);
   window.open(url,'_blank');
+  metrikaGoal('lead');
   toast(CONFIG.leadTo==='telegram'?'Открываем Telegram — отправьте сообщение':'Открываем WhatsApp — отправьте сообщение');
 }
 let tT;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('show'),3000)}
