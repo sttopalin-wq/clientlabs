@@ -934,5 +934,32 @@ function leadFallback(name,phone,svc){
 }
 let tT;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('show'),3000)}
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "CLIENTLABS",
+  "alternateName": "КЛИЕНТЛАБС",
+  "url": "https://clientlabs.ru/",
+  "image": "https://clientlabs.ru/favicon-512.png",
+  "description": "Performance-агентство полного цикла: таргетированная и контекстная реклама, создание продающих сайтов и лендингов, парсинг баз. Приводим заявки и растим выручку.",
+  "email": "clientlabs@mail.ru",
+  "priceRange": "от 5000 ₽",
+  "foundingDate": "2019",
+  "areaServed": [{ "@type": "Country", "name": "Россия" }, { "@type": "Place", "name": "СНГ" }],
+  "sameAs": ["https://t.me/CLIENT_LABS"],
+  "knowsAbout": ["Таргетированная реклама", "Контекстная реклама", "Яндекс.Директ", "Создание сайтов", "Лендинги", "Парсинг данных", "Performance-маркетинг"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Таргетированная реклама" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Контекстная реклама" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Создание сайтов под ключ" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Парсинг и базы данных" } }
+    ]
+  }
+}
+</script>
 </body>
 </html>
