@@ -286,10 +286,11 @@ svg.in .dt{opacity:1}
 /* REVIEWS */
 .reviews{padding:120px 0;border-bottom:1px solid var(--line)}
 .rev-wrap{display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--line)}
-.rev-list{max-height:460px;overflow-y:auto;align-self:start;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
-.rev-list::-webkit-scrollbar{width:6px}
-.rev-list::-webkit-scrollbar-track{background:transparent}
-.rev-list::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+.rev-col{position:relative;overflow:hidden}
+.rev-scroll{position:absolute;inset:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+.rev-scroll::-webkit-scrollbar{width:6px}
+.rev-scroll::-webkit-scrollbar-track{background:transparent}
+.rev-scroll::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
 .rev-item{padding:30px 36px;border-bottom:1px solid var(--hair);transition:background .3s}
 .rev-item:hover{background:var(--paper-2)}
 .rev-item .rtop{display:flex;align-items:center;gap:14px;margin-bottom:12px}
@@ -313,7 +314,7 @@ svg.in .dt{opacity:1}
 .rev-form .btn{width:100%;justify-content:center;background:var(--paper);color:var(--ink)}
 .rev-form .btn::before{background:var(--accent)}
 .rev-form .btn:hover{color:var(--paper)}
-@media(max-width:860px){.rev-wrap{grid-template-columns:1fr}.rev-form{border-left:none;border-top:1px solid var(--line)}}
+@media(max-width:860px){.rev-wrap{grid-template-columns:1fr}.rev-form{border-left:none;border-top:1px solid var(--line)}.rev-col{position:static;overflow:visible}.rev-scroll{position:static;max-height:70vh}}
 
 /* LEAD */
 .lead{padding:140px 0;border-bottom:1px solid var(--line)}
@@ -408,7 +409,7 @@ footer{padding:74px 0 40px;overflow:hidden}
   .prow .ptitle{font-size:18px}
   .crow{padding:28px 0}
   .tcard{padding:32px 26px;min-height:0}
-  .rev-list{max-height:none}
+  .rev-scroll{max-height:60vh}
   .rev-item{padding:24px 20px}
   .rev-form{padding:28px 22px}
   .foot-huge{margin-bottom:36px}
@@ -645,7 +646,7 @@ footer{padding:74px 0 40px;overflow:hidden}
   <div class="wrap">
     <div class="sec-top rv"><div class="idx mono">(08)</div><div><h2>Отзывы.</h2><p class="lead">Работали с нами? Оставьте отзыв — после проверки он появится здесь.</p></div></div>
     <div class="rev-wrap rv">
-      <div class="rev-list" id="reviewsList"></div>
+      <div class="rev-col"><div class="rev-scroll" id="reviewsList"></div></div>
       <div class="rev-form">
         <h3>Оставить отзыв</h3><div class="rsub">// поделитесь впечатлением</div>
         <div class="fld"><label>Имя</label><input id="rvName" placeholder="Например, Алексей"></div>
