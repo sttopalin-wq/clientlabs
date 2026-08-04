@@ -740,7 +740,11 @@ const CONFIG = {
   // 1) Создайте счётчик на metrika.yandex.ru (2 минуты).
   // 2) Скопируйте номер счётчика (только цифры) и вставьте сюда.
   // Пусто = аналитика выключена. Цели 'lead' и 'review' срабатывают сами.
-  metrikaId: '111107335'
+  metrikaId: '111107335',
+
+  // === ОТЗЫВЫ (Cloudflare Worker с модерацией) =============================
+  // Адрес развёрнутого Worker. Пусто = отзывы работают в старом режиме (localStorage).
+  reviewsApi: 'https://clientlabs-reviews.ilatopal55.workers.dev'
 };
 
 /* Применяем контакты ко всем ссылкам на странице */
@@ -847,7 +851,13 @@ const seed=[
 ];
 function loadR(){let s=[];try{s=JSON.parse(localStorage.getItem('cl_reviews')||'[]')}catch(e){}return[...s,...seed]}
 function esc(s){return(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function renderR(){document.getElementById('reviewsList').innerHTML=loadR().map(r=>`<div class="rev-item"><div class="rtop"><div class="rav">${esc((r.name||'?').charAt(0).toUpperCase())}</div><div class="rwho"><b>${esc(r.name)}</b><small>${esc(r.company||'Клиент')}</small></div><div class="rstars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div></div><p>${esc(r.text)}</p></div>`).join('')}
+function revHTML(r){return `<div class="rev-item"><div class="rtop"><div class="rav">${esc((r.name||'?').charAt(0).toUpperCase())}</div><div class="rwho"><b>${esc(r.name)}</b><small>${esc(r.company||'Клиент')}</small></div><div class="rstars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div></div><p>${esc(r.text)}</p></div>`}
+async function renderR(){
+  let real=[];
+  if(CONFIG.reviewsApi){try{const rp=await fetch(CONFIG.reviewsApi+'/reviews',{cache:'no-store'});if(rp.ok)real=await rp.json();}catch(e){}}
+  const all=CONFIG.reviewsApi?[...real,...seed]:loadR();
+  document.getElementById('reviewsList').innerHTML=all.map(revHTML).join('');
+}
 let picked=5;const sp=document.getElementById('starPick');
 function paint(v){sp.querySelectorAll('span').forEach(s=>s.classList.toggle('on',+s.dataset.v<=v))}
 sp.querySelectorAll('span').forEach(s=>{s.onclick=()=>{picked=+s.dataset.v;paint(picked)};s.onmouseenter=()=>paint(+s.dataset.v)});
@@ -856,13 +866,25 @@ async function submitReview(){
   const name=rvName.value.trim(),company=rvCompany.value.trim(),text=rvText.value.trim();
   if(!name||!text){toast('Заполните имя и текст');return}
   if(text.length<10){toast('Отзыв слишком короткий');return}
-  // сохраняем локально для мгновенного отображения
+  // Основной режим — отправка на модерацию через Worker
+  if(CONFIG.reviewsApi){
+    try{
+      const rp=await fetch(CONFIG.reviewsApi+'/review',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name,company,stars:picked,text})});
+      const d=await rp.json();
+      if(d&&d.ok){
+        rvName.value='';rvCompany.value='';rvText.value='';picked=5;paint(5);
+        toast('Спасибо! Отзыв появится после проверки');metrikaGoal('review');return;
+      }
+    }catch(e){}
+    toast('Не удалось отправить, попробуйте позже');return;
+  }
+  // Резервный режим (если Worker не настроен) — локально + Telegram
   let s=[];try{s=JSON.parse(localStorage.getItem('cl_reviews')||'[]')}catch(e){}
   s.unshift({name,company,stars:picked,text});
   localStorage.setItem('cl_reviews',JSON.stringify(s));
   rvName.value='';rvCompany.value='';rvText.value='';const wasStars=picked;picked=5;paint(5);renderR();
   toast('Спасибо за отзыв');metrikaGoal('review');
-  // уведомляем владельца в Telegram, чтобы отзыв не потерялся
   if(CONFIG.tgBotToken && CONFIG.tgChatId){
     const msg=`⭐ Новый отзыв — CLIENTLABS\n\n👤 ${name}${company?' · '+company:''}\n${'★'.repeat(wasStars)}${'☆'.repeat(5-wasStars)}\n\n${text}`;
     try{await fetch('https://api.telegram.org/bot'+CONFIG.tgBotToken+'/sendMessage',{
