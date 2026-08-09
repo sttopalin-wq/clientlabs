@@ -160,17 +160,20 @@ nav .burger{display:none;background:none;border:none;font-size:22px}
 
 /* SERVICES */
 .services{padding:120px 0;border-bottom:1px solid var(--line)}
-.svc-row{display:grid;grid-template-columns:70px 0.9fr 1.5fr auto;gap:26px;align-items:start;padding:40px 0;border-top:1px solid var(--line);transition:padding .4s var(--ease)}
-.svc-row:hover{padding-left:14px}
-.svc-row .n{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray)}
-.svc-row h3{font-weight:800;letter-spacing:-.03em;font-size:clamp(26px,3.6vw,46px);line-height:.98}
-.svc-row .desc{font-size:15.5px;color:#333;font-weight:500}
-.svc-row .desc ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px}
-.svc-row .desc li{padding-left:20px;position:relative;font-size:14px;color:#555}
-.svc-row .desc li::before{content:"→";position:absolute;left:0;color:var(--accent)}
-.svc-row .plus{font-size:32px;font-weight:200;justify-self:end;transition:transform .5s var(--ease)}
-.svc-row:hover .plus{transform:rotate(90deg)}
-@media(max-width:860px){.svc-row{grid-template-columns:1fr;gap:12px}.svc-row .plus{display:none}}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.svc-card{background:var(--paper);padding:38px 32px 30px;display:flex;flex-direction:column;transition:background .35s}
+.svc-card:hover{background:var(--paper-2)}
+.svc-card:hover .svc-ico svg{transform:translateY(-3px) rotate(-2deg)}
+.svc-ico{width:56px;height:56px;margin-bottom:22px}
+.svc-ico svg{width:100%;height:100%;display:block;transition:transform .45s var(--ease)}
+.svc-card .n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:.06em;margin-bottom:10px}
+.svc-card h3{font-weight:800;letter-spacing:-.03em;font-size:24px;line-height:1.05;margin-bottom:10px}
+.svc-card .sd{font-size:14px;color:#555;font-weight:500;line-height:1.5;margin-bottom:22px}
+.svc-card .sub{list-style:none;border-top:1px solid var(--hair);margin-top:auto;padding-top:4px}
+.svc-card .sub li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--hair);font-size:13.5px}
+.svc-card .sub li:last-child{border-bottom:none}
+.svc-card .sub .sn{color:#2a2a2a;font-weight:600}
+.svc-card .sub .sp{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
 
 /* RESULTS */
 .results{padding:120px 0;border-bottom:1px solid var(--line)}
@@ -533,14 +536,72 @@ footer{padding:74px 0 40px;overflow:hidden}
     <div class="sec-top rv">
       <div class="idx mono">(02)</div>
       <div>
-        <h2>Четыре инструмента. Одна цель — заявки, которые покупают.</h2>
+        <h2>Пять направлений. Одна цель — заявки, которые покупают.</h2>
         <p class="lead">Работаем комплексно или по отдельным направлениям. От первого клика до заявки в вашей CRM.</p>
       </div>
     </div>
-    <div class="svc-row rv"><div class="n">01 / SMM</div><h3>Таргетированная<br>реклама</h3><div class="desc">Находим вашу аудиторию в соцсетях и показываем ей то, от чего сложно пройти мимо.<ul><li>Анализ аудитории и конкурентов</li><li>Продающие креативы и тексты</li><li>A/B-тесты и ежедневная оптимизация</li></ul></div><div class="plus">+</div></div>
-    <div class="svc-row rv"><div class="n">02 / PPC</div><h3>Контекстная<br>реклама</h3><div class="desc">Ловим «горячих» клиентов в момент, когда они уже ищут ваш продукт.<ul><li>Поиск, РСЯ и ретаргетинг</li><li>Семантика без слитого бюджета</li><li>Сквозная аналитика до продажи</li></ul></div><div class="plus">+</div></div>
-    <div class="svc-row rv"><div class="n">03 / WEB</div><h3>Сайты<br>под ключ</h3><div class="desc">Продающие сайты и лендинги, которые превращают трафик в заявки.<ul><li>Дизайн, вызывающий доверие с первого экрана</li><li>Скорость загрузки и мобильная версия</li><li>Конверсия и интеграция с CRM</li></ul></div><div class="plus">+</div></div>
-    <div class="svc-row rv"><div class="n">04 / DATA</div><h3>Парсинг<br>и базы</h3><div class="desc">Собираем данные, которые превращаются в клиентов: базы для рассылок, аудитории для рекламы, аналитику рынка.<ul><li>Контакты потенциальных клиентов по нише и городу</li><li>Аудитории для таргета и данные конкурентов</li><li>Товары и каталоги для маркетплейсов · другое под запрос</li></ul></div><div class="plus">+</div></div>
+    <div class="svc-grid">
+      <div class="svc-card rv">
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="19" stroke="currentColor" stroke-width="1.6"/><circle cx="28" cy="28" r="10.5" stroke="currentColor" stroke-width="1.6"/><circle cx="28" cy="28" r="3.4" fill="#e8360d"/><path d="M28 3v9M28 44v9M3 28h9M44 28h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="n">01 / SMM</div>
+        <h3>Таргетированная реклама</h3>
+        <div class="sd">Находим вашу аудиторию в соцсетях и показываем то, от чего сложно пройти мимо.</div>
+        <ul class="sub">
+          <li><span class="sn">Настройка ВКонтакте</span><span class="sp">от 8 000 ₽</span></li>
+          <li><span class="sn">Настройка Telegram Ads</span><span class="sp">от 10 000 ₽</span></li>
+          <li><span class="sn">Ведение и оптимизация</span><span class="sp">от 5 000 ₽/мес</span></li>
+          <li><span class="sn">Продающие креативы</span><span class="sp">от 3 000 ₽</span></li>
+        </ul>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><circle cx="24" cy="24" r="15" stroke="currentColor" stroke-width="1.6"/><path d="M34.5 34.5 49 49" stroke="#e8360d" stroke-width="2.2" stroke-linecap="round"/><path d="M17 24h14M24 17v14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="n">02 / PPC</div>
+        <h3>Контекстная реклама</h3>
+        <div class="sd">Ловим «горячих» клиентов в момент, когда они уже ищут ваш продукт.</div>
+        <ul class="sub">
+          <li><span class="sn">Настройка Директ (Поиск + РСЯ)</span><span class="sp">от 10 000 ₽</span></li>
+          <li><span class="sn">Ведение кампании</span><span class="sp">от 5 000 ₽/мес</span></li>
+          <li><span class="sn">Ретаргетинг</span><span class="sp">от 5 000 ₽</span></li>
+          <li><span class="sn">Сквозная аналитика</span><span class="sp">от 5 000 ₽</span></li>
+        </ul>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><rect x="4" y="9" width="48" height="38" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 18h48" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="13.5" r="1.4" fill="currentColor"/><circle cx="15" cy="13.5" r="1.4" fill="currentColor"/><path d="M16 33l7 6 13-15" stroke="#e8360d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="n">03 / WEB</div>
+        <h3>Сайты под ключ</h3>
+        <div class="sd">Продающие сайты и лендинги, которые превращают трафик в заявки.</div>
+        <ul class="sub">
+          <li><span class="sn">Лендинг под рекламу</span><span class="sp">от 20 000 ₽</span></li>
+          <li><span class="sn">Многостраничный сайт</span><span class="sp">от 35 000 ₽</span></li>
+          <li><span class="sn">Квиз / воронка</span><span class="sp">от 15 000 ₽</span></li>
+          <li><span class="sn">Редизайн старого сайта</span><span class="sp">от 15 000 ₽</span></li>
+        </ul>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><ellipse cx="28" cy="12" rx="18" ry="6" stroke="currentColor" stroke-width="1.6"/><path d="M10 12v14c0 3.3 8 6 18 6s18-2.7 18-6V12" stroke="currentColor" stroke-width="1.6"/><path d="M10 26v14c0 3.3 8 6 18 6s18-2.7 18-6V26" stroke="currentColor" stroke-width="1.6"/><circle cx="28" cy="33" r="2.2" fill="#e8360d"/></svg></div>
+        <div class="n">04 / DATA</div>
+        <h3>Парсинг и базы</h3>
+        <div class="sd">Собираем данные, которые превращаются в клиентов: базы, аудитории, аналитику рынка.</div>
+        <ul class="sub">
+          <li><span class="sn">Контакты клиентов по нише и городу</span><span class="sp">от 3 000 ₽</span></li>
+          <li><span class="sn">Аудитории для таргета</span><span class="sp">от 3 000 ₽</span></li>
+          <li><span class="sn">Данные конкурентов</span><span class="sp">от 5 000 ₽</span></li>
+          <li><span class="sn">Товары / каталоги</span><span class="sp">от 5 000 ₽</span></li>
+        </ul>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M7 40 34 13a4 4 0 0 1 5.7 0l3.3 3.3a4 4 0 0 1 0 5.7L16 49l-10 3 3-10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M29 18l9 9" stroke="#e8360d" stroke-width="1.8"/></svg></div>
+        <div class="n">05 / MKT</div>
+        <h3>Контент и маркетинг</h3>
+        <div class="sd">Упаковываем смысл: тексты, позиционирование и ведение соцсетей.</div>
+        <ul class="sub">
+          <li><span class="sn">Ведение соцсетей (SMM)</span><span class="sp">от 8 000 ₽/мес</span></li>
+          <li><span class="sn">Копирайтинг и тексты</span><span class="sp">от 500 ₽</span></li>
+          <li><span class="sn">Разработка УТП</span><span class="sp">от 10 000 ₽</span></li>
+          <li><span class="sn">Маркетинг-кит / презентация</span><span class="sp">от 15 000 ₽</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -676,7 +737,7 @@ footer{padding:74px 0 40px;overflow:hidden}
       <form class="lead-form rv" onsubmit="submitLead(event)">
         <div class="fld"><label>Как вас зовут?</label><input id="ldName" required placeholder="Ваше имя"></div>
         <div class="fld"><label>Телефон или мессенджер</label><input id="ldPhone" required placeholder="+7 ___ ___ __ __"></div>
-        <div class="fld"><label>Что вас интересует?</label><select id="ldService"><option>Таргетированная реклама</option><option>Контекстная реклама</option><option>Сайт под ключ</option><option>Парсинг / база клиентов</option><option>Комплекс под ключ</option><option>Нужна консультация</option></select></div>
+        <div class="fld"><label>Что вас интересует?</label><select id="ldService"><option>Таргетированная реклама</option><option>Контекстная реклама</option><option>Сайт под ключ</option><option>Парсинг / база клиентов</option><option>Контент / SMM / УТП</option><option>Комплекс под ключ</option><option>Нужна консультация</option></select></div>
         <button class="btn" type="submit"><span>Получить бесплатный разбор →</span></button>
         <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);margin-top:12px">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:var(--accent);text-decoration:underline">политикой обработки данных</a>.</p>
       </form>
@@ -690,7 +751,7 @@ footer{padding:74px 0 40px;overflow:hidden}
     <div class="foot-huge">CLIENTLABS<sup>®</sup></div>
     <div class="foot-grid">
       <div><p>Performance-агентство полного цикла. Приводим клиентов через таргет, контекст и сайты, которые продают.</p></div>
-      <div class="foot-col"><h5>Услуги</h5><a href="#services">Таргет</a><a href="#services">Контекст</a><a href="#services">Сайты</a><a href="#services">Парсинг</a></div>
+      <div class="foot-col"><h5>Услуги</h5><a href="#services">Таргет</a><a href="#services">Контекст</a><a href="#services">Сайты</a><a href="#services">Парсинг</a><a href="#services">Контент</a></div>
       <div class="foot-col"><h5>Компания</h5><a href="#work">Результаты</a><a href="#reviews">Отзывы</a><a href="#tariffs">Тарифы</a></div>
       <div class="foot-col"><h5>Контакт</h5><a href="https://t.me/clientlabs" target="_blank">Telegram</a><a href="#" data-max target="_blank">МАКС</a><a href="mailto:clientlabs@mail.ru">clientlabs@mail.ru</a></div>
     </div>
@@ -980,7 +1041,8 @@ let tT;function toast(m){const t=document.getElementById('toast');t.textContent=
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Таргетированная реклама" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Контекстная реклама" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Создание сайтов под ключ" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Парсинг и базы данных" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Парсинг и базы данных" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Контент и маркетинг (SMM, копирайтинг, УТП)" } }
     ]
   }
 }
