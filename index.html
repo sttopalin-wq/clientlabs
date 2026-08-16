@@ -160,8 +160,10 @@ nav .burger{display:none;background:none;border:none;font-size:22px}
 
 /* SERVICES */
 .services{padding:120px 0;border-bottom:1px solid var(--line)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
-.svc-card{background:var(--paper);padding:38px 32px 30px;display:flex;flex-direction:column;transition:background .35s}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:8px}
+.svc-card{background:var(--paper);padding:38px 32px 30px;display:flex;flex-direction:column;transition:background .35s;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:980px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.svc-grid{grid-template-columns:1fr}}
 .svc-card:hover{background:var(--paper-2)}
 .svc-card:hover .svc-ico svg{transform:translateY(-3px) rotate(-2deg)}
 .svc-ico{width:56px;height:56px;margin-bottom:22px}
@@ -537,7 +539,7 @@ footer{padding:74px 0 40px;overflow:hidden}
     <div class="sec-top rv">
       <div class="idx mono">(02)</div>
       <div>
-        <h2>Девять направлений. Одна цель — заявки, которые покупают.</h2>
+        <h2>Шесть направлений. Одна цель — заявки, которые покупают.</h2>
         <p class="lead">Работаем комплексно или по отдельным направлениям. От первого клика до заявки в вашей CRM.</p>
       </div>
     </div>
@@ -548,22 +550,22 @@ footer{padding:74px 0 40px;overflow:hidden}
         <h3>Таргетированная реклама</h3>
         <div class="sd">Находим вашу аудиторию в соцсетях и показываем то, от чего сложно пройти мимо.</div>
         <ul class="sub">
-          <li><span class="sn">Настройка ВКонтакте</span><span class="sp"><span class="spo">16 000 ₽</span>от 8 000 ₽</span></li>
-          <li><span class="sn">Настройка Telegram Ads</span><span class="sp"><span class="spo">20 000 ₽</span>от 10 000 ₽</span></li>
-          <li><span class="sn">Ведение и оптимизация</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽/мес</span></li>
-          <li><span class="sn">Продающие креативы</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
+          <li><span class="sn">Настройка ВКонтакте</span><span class="sp">от 15 000 ₽</span></li>
+          <li><span class="sn">Настройка Telegram Ads</span><span class="sp">от 15 000 ₽</span></li>
+          <li><span class="sn">Ведение и оптимизация</span><span class="sp">от 25 000 ₽/мес</span></li>
+          <li><span class="sn">Продающие креативы</span><span class="sp">от 5 000 ₽</span></li>
         </ul>
       </div>
       <div class="svc-card rv">
         <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><circle cx="24" cy="24" r="15" stroke="currentColor" stroke-width="1.6"/><path d="M34.5 34.5 49 49" stroke="#e8360d" stroke-width="2.2" stroke-linecap="round"/><path d="M17 24h14M24 17v14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <div class="n">02 / PPC</div>
         <h3>Контекстная реклама</h3>
-        <div class="sd">Ловим «горячих» клиентов в момент, когда они уже ищут ваш продукт.</div>
+        <div class="sd">Настройка кампаний с оплатой за целевые заявки — ловим клиентов, когда они уже ищут ваш продукт.</div>
         <ul class="sub">
-          <li><span class="sn">Настройка Директ (Поиск + РСЯ)</span><span class="sp"><span class="spo">20 000 ₽</span>от 10 000 ₽</span></li>
-          <li><span class="sn">Ведение кампании</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽/мес</span></li>
-          <li><span class="sn">Ретаргетинг</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-          <li><span class="sn">Сквозная аналитика</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
+          <li><span class="sn">Настройка Директ (Поиск + РСЯ)</span><span class="sp">от 25 000 ₽</span></li>
+          <li><span class="sn">Ведение кампании</span><span class="sp">от 30 000 ₽/мес</span></li>
+          <li><span class="sn">Оплата за целевую заявку</span><span class="sp">от 900 ₽/заявка</span></li>
+          <li><span class="sn">Ретаргетинг</span><span class="sp">от 10 000 ₽</span></li>
         </ul>
       </div>
       <div class="svc-card rv">
@@ -572,82 +574,46 @@ footer{padding:74px 0 40px;overflow:hidden}
         <h3>Сайты под ключ</h3>
         <div class="sd">Продающие сайты и лендинги, которые превращают трафик в заявки.</div>
         <ul class="sub">
-          <li><span class="sn">Лендинг под рекламу</span><span class="sp"><span class="spo">40 000 ₽</span>от 20 000 ₽</span></li>
-          <li><span class="sn">Многостраничный сайт</span><span class="sp"><span class="spo">70 000 ₽</span>от 35 000 ₽</span></li>
-          <li><span class="sn">Квиз / воронка</span><span class="sp"><span class="spo">30 000 ₽</span>от 15 000 ₽</span></li>
-          <li><span class="sn">Редизайн старого сайта</span><span class="sp"><span class="spo">30 000 ₽</span>от 15 000 ₽</span></li>
+          <li><span class="sn">Лендинг под рекламу</span><span class="sp">от 60 000 ₽</span></li>
+          <li><span class="sn">Многостраничный сайт</span><span class="sp">от 120 000 ₽</span></li>
+          <li><span class="sn">Квиз / воронка</span><span class="sp">от 40 000 ₽</span></li>
+          <li><span class="sn">Редизайн старого сайта</span><span class="sp">от 45 000 ₽</span></li>
         </ul>
       </div>
       <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><ellipse cx="28" cy="12" rx="18" ry="6" stroke="currentColor" stroke-width="1.6"/><path d="M10 12v14c0 3.3 8 6 18 6s18-2.7 18-6V12" stroke="currentColor" stroke-width="1.6"/><path d="M10 26v14c0 3.3 8 6 18 6s18-2.7 18-6V26" stroke="currentColor" stroke-width="1.6"/><circle cx="28" cy="33" r="2.2" fill="#e8360d"/></svg></div>
-        <div class="n">04 / DATA</div>
-        <h3>Парсинг и базы</h3>
-        <div class="sd">Собираем данные, которые превращаются в клиентов: базы, аудитории, аналитику рынка.</div>
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><circle cx="24" cy="24" r="15" stroke="currentColor" stroke-width="1.6"/><path d="M34.5 34.5 49 49" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M14 31l7-7 5 5 8-10" stroke="#e8360d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 12h7v7" stroke="#e8360d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="n">04 / SEO</div>
+        <h3>SEO-продвижение</h3>
+        <div class="sd">Оптимизация под классический и ИИ-поиск — находят вас, а не конкурентов.</div>
         <ul class="sub">
-          <li><span class="sn">Контакты клиентов по нише и городу</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Аудитории для таргета</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Данные конкурентов</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-          <li><span class="sn">Товары / каталоги</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
+          <li><span class="sn">Технический SEO-аудит</span><span class="sp">от 20 000 ₽</span></li>
+          <li><span class="sn">Продвижение в классическом поиске</span><span class="sp">от 30 000 ₽/мес</span></li>
+          <li><span class="sn">Оптимизация под ИИ-поиск</span><span class="sp">от 25 000 ₽</span></li>
+          <li><span class="sn">Локальное SEO (Карты, отзывы)</span><span class="sp">от 15 000 ₽</span></li>
         </ul>
       </div>
       <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M7 40 34 13a4 4 0 0 1 5.7 0l3.3 3.3a4 4 0 0 1 0 5.7L16 49l-10 3 3-10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M29 18l9 9" stroke="#e8360d" stroke-width="1.8"/></svg></div>
-        <div class="n">05 / MKT</div>
-        <h3>Контент и маркетинг</h3>
-        <div class="sd">Упаковываем смысл: тексты, позиционирование и ведение соцсетей.</div>
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M8 48V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 48h44" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="14" y="32" width="7" height="16" stroke="currentColor" stroke-width="1.6"/><rect x="25" y="22" width="7" height="26" stroke="currentColor" stroke-width="1.6"/><rect x="36" y="12" width="7" height="36" fill="#e8360d"/></svg></div>
+        <div class="n">05 / DATA</div>
+        <h3>Аналитика</h3>
+        <div class="sd">Подключение метрик, коллтрекинга и сквозного учёта лидов — видно, что реально работает.</div>
         <ul class="sub">
-          <li><span class="sn">Ведение соцсетей (SMM)</span><span class="sp"><span class="spo">16 000 ₽</span>от 8 000 ₽/мес</span></li>
-          <li><span class="sn">Копирайтинг и тексты</span><span class="sp"><span class="spo">1 000 ₽</span>от 500 ₽</span></li>
-          <li><span class="sn">Разработка УТП</span><span class="sp"><span class="spo">20 000 ₽</span>от 10 000 ₽</span></li>
-          <li><span class="sn">Маркетинг-кит / презентация</span><span class="sp"><span class="spo">30 000 ₽</span>от 15 000 ₽</span></li>
+          <li><span class="sn">Настройка Метрики и целей</span><span class="sp">от 10 000 ₽</span></li>
+          <li><span class="sn">Коллтрекинг</span><span class="sp">от 15 000 ₽</span></li>
+          <li><span class="sn">Сквозная аналитика (CRM + реклама)</span><span class="sp">от 40 000 ₽</span></li>
+          <li><span class="sn">Дашборд по заявкам</span><span class="sp">от 20 000 ₽</span></li>
         </ul>
       </div>
       <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M14 6h20l8 8v36a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M34 6v8h8" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18 28h20M18 35h20M18 42h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="41.5" cy="42.5" r="2.4" fill="#e8360d"/></svg></div>
-        <div class="n">06 / DOC</div>
-        <h3>Документы и брендинг</h3>
-        <div class="sd">Готовим документы и визуал бизнеса — быстро, без юриста и дизайн-студии.</div>
+        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M28 8c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z" fill="#e8360d"/><circle cx="45" cy="15" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="11" cy="43" r="3" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <div class="n">06 / AI</div>
+        <h3>AI-маркетинг</h3>
+        <div class="sd">Внедрение искусственного интеллекта в продвижение и контент.</div>
         <ul class="sub">
-          <li><span class="sn">Договор / коммерческое предложение</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Презентация (PPTX)</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-          <li><span class="sn">Политика обработки данных (152-ФЗ)</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Брендбук / гайдлайн</span><span class="sp"><span class="spo">30 000 ₽</span>от 15 000 ₽</span></li>
-        </ul>
-      </div>
-      <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M17 38a9 9 0 0 1 1-18 11 11 0 0 1 21-2 8 8 0 0 1-1 20H17Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M31 22l-7 10h5.5l-2.5 8 9-11h-5.5l2.5-7Z" fill="#e8360d"/></svg></div>
-        <div class="n">07 / AUTO</div>
-        <h3>Автоматизация и IT</h3>
-        <div class="sd">Боты, калькуляторы и техническая часть сайта — то, что мы настроили и себе.</div>
-        <ul class="sub">
-          <li><span class="sn">Telegram-бот для бизнеса</span><span class="sp"><span class="spo">30 000 ₽</span>от 15 000 ₽</span></li>
-          <li><span class="sn">Онлайн-калькулятор / квиз</span><span class="sp"><span class="spo">20 000 ₽</span>от 10 000 ₽</span></li>
-          <li><span class="sn">Домен, хостинг, аналитика</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-          <li><span class="sn">Мониторинг доступности сайта</span><span class="sp"><span class="spo">4 000 ₽</span>от 2 000 ₽/мес</span></li>
-        </ul>
-      </div>
-      <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><circle cx="24" cy="24" r="15" stroke="currentColor" stroke-width="1.6"/><path d="M34.5 34.5 49 49" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M17 27l4-8 4 5 3-10" stroke="#e8360d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="n">08 / SEO</div>
-        <h3>SEO и продвижение</h3>
-        <div class="sd">Настраиваем сайт так, чтобы его находили в Яндексе и Google — сделали это себе.</div>
-        <ul class="sub">
-          <li><span class="sn">Технический SEO-аудит</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-          <li><span class="sn">Настройка Вебмастер + Search Console</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Sitemap, robots.txt, микроразметка</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Локальное SEO (Карты, отзывы)</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-        </ul>
-      </div>
-      <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 56 56" fill="none"><path d="M8 14a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H24l-10 9v-9h-2a4 4 0 0 1-4-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="18" cy="23" r="1.8" fill="currentColor"/><circle cx="28" cy="23" r="1.8" fill="currentColor"/><circle cx="38" cy="23" r="1.8" fill="#e8360d"/></svg></div>
-        <div class="n">09 / ASK</div>
-        <h3>Консультации и обучение</h3>
-        <div class="sd">Разберём кабинет, ответим на вопросы, научим основам — без воды.</div>
-        <ul class="sub">
-          <li><span class="sn">Разбор рекламного кабинета</span><span class="sp"><span class="spo">6 000 ₽</span>от 3 000 ₽</span></li>
-          <li><span class="sn">Консультация по стратегии</span><span class="sp"><span class="spo">4 000 ₽</span>от 2 000 ₽/час</span></li>
-          <li><span class="sn">Обучение основам таргета и контекста</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
-          <li><span class="sn">Аудит сайта и конкурентов</span><span class="sp"><span class="spo">10 000 ₽</span>от 5 000 ₽</span></li>
+          <li><span class="sn">Автоматизация контента через ИИ</span><span class="sp">от 20 000 ₽</span></li>
+          <li><span class="sn">AI-чат-бот для сайта</span><span class="sp">от 30 000 ₽</span></li>
+          <li><span class="sn">ИИ-оптимизация рекламы</span><span class="sp">от 25 000 ₽</span></li>
+          <li><span class="sn">Аудит и внедрение AI-инструментов</span><span class="sp">от 15 000 ₽</span></li>
         </ul>
       </div>
     </div>
@@ -722,11 +688,11 @@ footer{padding:74px 0 40px;overflow:hidden}
   <div class="wrap">
     <div class="sec-top rv"><div class="idx mono">(06)</div><div><h2>Форматы работы.</h2><p class="lead">Берите одну услугу или соберите комплекс. Цены прозрачные — точную сумму под проект называем на бесплатном разборе.</p></div></div>
     <div class="tgrid rv">
-      <div class="tcard"><div class="tbadge">Web</div><h3>Сайт под ключ</h3><div class="tprice"><span class="old">40 000 ₽</span>от 20 000 ₽</div><div class="tsale">🎂 Цена ко дню рождения — новым клиентам</div><ul><li>Продающий лендинг или сайт под ключ</li><li>Дизайн под доверие и адаптив</li><li>Форма заявок в Telegram / CRM</li><li>Аналитика и установка на домен</li><li>Срок — от 5–7 дней</li></ul><a href="#lead" class="btn ghost"><span>Обсудить →</span></a></div>
-      <div class="tcard"><div class="tbadge">Ads</div><h3>Реклама<br>таргет, контекст</h3><div class="tprice"><span class="old">10 000 ₽</span>от 5 000 ₽ / мес</div><div class="tsale">🎂 Цена ко дню рождения — новым клиентам</div><ul><li>Таргет и/или контекст на выбор</li><li>Настройка, ведение, оптимизация</li><li>Продающие креативы и тексты</li><li>Сквозная аналитика и отчёты в деньгах</li></ul><a href="#lead" class="btn ghost"><span>Обсудить →</span></a></div>
-      <div class="tcard"><div class="tbadge">Data</div><h3>Парсинг</h3><div class="tprice"><span class="old">6 000 ₽</span>от 3 000 ₽ / база</div><div class="tsale">🎂 Цена ко дню рождения — новым клиентам</div><ul><li>Контакты клиентов по нише и городу</li><li>Аудитории для таргета</li><li>Данные и цены конкурентов</li><li>Товары / каталоги для маркетплейсов</li></ul><a href="#lead" class="btn ghost"><span>Обсудить →</span></a></div>
+      <div class="tcard"><div class="tbadge">Web</div><h3>Сайт под ключ</h3><div class="tprice">от 60 000 ₽</div><ul><li>Продающий лендинг или сайт под ключ</li><li>Дизайн под доверие и адаптив</li><li>Форма заявок в Telegram / CRM</li><li>Аналитика и установка на домен</li><li>Срок — от 5–7 дней</li></ul><a href="#lead" class="btn ghost"><span>Обсудить →</span></a></div>
+      <div class="tcard"><div class="tbadge">Ads</div><h3>Реклама<br>таргет, контекст</h3><div class="tprice">от 25 000 ₽ / мес</div><ul><li>Таргет и/или контекст на выбор</li><li>Настройка, ведение, оптимизация</li><li>Продающие креативы и тексты</li><li>Сквозная аналитика и отчёты в деньгах</li></ul><a href="#lead" class="btn ghost"><span>Обсудить →</span></a></div>
+      <div class="tcard"><div class="tbadge">SEO</div><h3>SEO-продвижение</h3><div class="tprice">от 30 000 ₽ / мес</div><ul><li>Технический аудит и микроразметка</li><li>Продвижение в классическом и ИИ-поиске</li><li>Локальное SEO (Карты, отзывы)</li><li>Ежемесячный отчёт по позициям</li></ul><a href="#lead" class="btn ghost"><span>Обсудить →</span></a></div>
     </div>
-    <p class="rv" style="text-align:center;margin-top:30px;font-size:14px;color:var(--gray)">Нужен комплекс (сайт + реклама + парсинг)? Соберём пакет со скидкой — обсудим на бесплатном разборе.</p>
+    <p class="rv" style="text-align:center;margin-top:30px;font-size:14px;color:var(--gray)">Нужен комплекс (сайт + реклама + SEO)? Соберём пакет со скидкой — обсудим на бесплатном разборе.</p>
   </div>
 </section>
 
@@ -741,7 +707,7 @@ footer{padding:74px 0 40px;overflow:hidden}
       <div class="g"><div class="gi">04</div><b>Без штрафов за выход</b><p>Не устроил результат — расстаёмся спокойно, без скрытых условий и удержаний.</p></div>
     </div>
     <div class="faq-list rv">
-      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(01)</span><span class="qt">Сколько стоит работа с вами?</span><span class="qp">+</span></button><div class="faq-a"><p>Ведение — от 5 000 ₽/мес. Точную цену под ваш проект называем на бесплатном разборе: она зависит от ниши, региона и целей.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(01)</span><span class="qt">Сколько стоит работа с вами?</span><span class="qp">+</span></button><div class="faq-a"><p>Ведение рекламы — от 25 000 ₽/мес. Точную цену под ваш проект называем на бесплатном разборе: она зависит от ниши, региона и целей.</p></div></div>
       <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(02)</span><span class="qt">Когда будут первые результаты?</span><span class="qp">+</span></button><div class="faq-a"><p>Первые заявки — обычно на 1–2 неделе. Первый месяц собираем данные, дальше растём и снижаем цену заявки. Стабильный результат — со 2–3 месяца.</p></div></div>
       <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(03)</span><span class="qt">А если реклама не сработает?</span><span class="qp">+</span></button><div class="faq-a"><p>Считаем экономику до старта и не берёмся за то, что заведомо не окупится. Если что-то идёт не так — оперативно меняем связки. Не подошли — расстаёмся без штрафов.</p></div></div>
       <div class="faq-item"><button class="faq-q" type="button"><span class="qn mono">(04)</span><span class="qt">Какой нужен рекламный бюджет?</span><span class="qp">+</span></button><div class="faq-a"><p>На старте обычно достаточно от 10 000 ₽/мес — этого хватает, чтобы собрать данные и выйти на поток заявок. Точную сумму назовём на разборе.</p></div></div>
@@ -786,7 +752,7 @@ footer{padding:74px 0 40px;overflow:hidden}
       <form class="lead-form rv" onsubmit="submitLead(event)">
         <div class="fld"><label>Как вас зовут?</label><input id="ldName" required placeholder="Ваше имя"></div>
         <div class="fld"><label>Телефон или мессенджер</label><input id="ldPhone" required placeholder="+7 ___ ___ __ __"></div>
-        <div class="fld"><label>Что вас интересует?</label><select id="ldService"><option>Таргетированная реклама</option><option>Контекстная реклама</option><option>Сайт под ключ</option><option>Парсинг / база клиентов</option><option>Контент / SMM / УТП</option><option>Документы / брендинг</option><option>Автоматизация / IT</option><option>SEO / продвижение</option><option>Комплекс под ключ</option><option>Нужна консультация</option></select></div>
+        <div class="fld"><label>Что вас интересует?</label><select id="ldService"><option>Таргетированная реклама</option><option>Контекстная реклама</option><option>Сайт под ключ</option><option>SEO-продвижение</option><option>Аналитика</option><option>AI-маркетинг</option><option>Комплекс под ключ</option><option>Нужна консультация</option></select></div>
         <button class="btn" type="submit"><span>Получить бесплатный разбор →</span></button>
         <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);margin-top:12px">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:var(--accent);text-decoration:underline">политикой обработки данных</a>.</p>
       </form>
@@ -800,7 +766,7 @@ footer{padding:74px 0 40px;overflow:hidden}
     <div class="foot-huge">CLIENTLABS<sup>®</sup></div>
     <div class="foot-grid">
       <div><p>Performance-агентство полного цикла. Приводим клиентов через таргет, контекст и сайты, которые продают.</p></div>
-      <div class="foot-col"><h5>Услуги</h5><a href="#services">Таргет</a><a href="#services">Контекст</a><a href="#services">Сайты</a><a href="#services">Парсинг</a><a href="#services">Контент</a><a href="#services">Документы</a><a href="#services">Автоматизация</a><a href="#services">SEO</a><a href="#services">Консультации</a></div>
+      <div class="foot-col"><h5>Услуги</h5><a href="#services">Таргет</a><a href="#services">Контекст</a><a href="#services">Сайты</a><a href="#services">SEO</a><a href="#services">Аналитика</a><a href="#services">AI-маркетинг</a></div>
       <div class="foot-col"><h5>Компания</h5><a href="#work">Результаты</a><a href="#reviews">Отзывы</a><a href="#tariffs">Тарифы</a></div>
       <div class="foot-col"><h5>Контакт</h5><a href="https://t.me/clientlabs" target="_blank">Telegram</a><a href="#" data-max target="_blank">МАКС</a><a href="mailto:clientlabs@mail.ru">clientlabs@mail.ru</a></div>
     </div>
@@ -1076,13 +1042,13 @@ let tT;function toast(m){const t=document.getElementById('toast');t.textContent=
   "alternateName": "КЛИЕНТЛАБС",
   "url": "https://clientlabs.ru/",
   "image": "https://clientlabs.ru/favicon-512.png",
-  "description": "Performance-агентство полного цикла: таргетированная и контекстная реклама, создание продающих сайтов и лендингов, парсинг баз. Приводим заявки и растим выручку.",
+  "description": "Performance-агентство полного цикла: таргетированная и контекстная реклама, создание продающих сайтов и лендингов, SEO и AI-маркетинг. Приводим заявки и растим выручку.",
   "email": "clientlabs@mail.ru",
   "priceRange": "от 5000 ₽",
   "foundingDate": "2019",
   "areaServed": [{ "@type": "Country", "name": "Россия" }, { "@type": "Place", "name": "СНГ" }],
   "sameAs": ["https://t.me/CLIENT_LABS"],
-  "knowsAbout": ["Таргетированная реклама", "Контекстная реклама", "Яндекс.Директ", "Создание сайтов", "Лендинги", "Парсинг данных", "Performance-маркетинг"],
+  "knowsAbout": ["Таргетированная реклама", "Контекстная реклама", "Яндекс.Директ", "Создание сайтов", "Лендинги", "SEO-продвижение", "Аналитика и коллтрекинг", "AI-маркетинг", "Performance-маркетинг"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Услуги",
@@ -1090,12 +1056,9 @@ let tT;function toast(m){const t=document.getElementById('toast');t.textContent=
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Таргетированная реклама" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Контекстная реклама" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Создание сайтов под ключ" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Парсинг и базы данных" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Контент и маркетинг (SMM, копирайтинг, УТП)" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Документы и брендинг (договоры, презентации, брендбук)" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Автоматизация и IT (боты, калькуляторы, техподдержка сайта)" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO и продвижение в поисковых системах" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Консультации и обучение по рекламе" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO-продвижение (классический и ИИ-поиск)" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Аналитика, метрики и коллтрекинг" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-маркетинг" } }
     ]
   }
 }
